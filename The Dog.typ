@@ -9,7 +9,7 @@
   max_hp: 18,
   stat_scores: [+2, +1, +1, +0, +0, -1],
   damage_die: "d6",
-  starting_moves: "Just A Dog, 1 move from your Background and 2 of your choice",
+  starting_moves: "Just A Dog, 1 move from your Background and 1 of your choice",
   num_special_possessions: "Pick 2, in addition to your fangs",
   steading_name: "Stonetop",
   place_of_origin: "Stonetop is your home, or close enough. What name have its people bestowed on you? Who specifically gave it to you? Pick 1 (or make up something similar).",
@@ -159,7 +159,7 @@
           When you *_unleash a howl for help in a wild place_*, roll +CHA. On a 7+ a nearby group of wild things will
           come to your aid. On a 10+ pick 2, on a 7-9 pick 1.
           - They arrive quickly (else they may take minutes).
-          - They number half a dozen at least.
+          - They number half a dozen at least (else a few).
           - They will willingly leave after your need is past (else they will want something such as food).
         ],
       ),
@@ -176,25 +176,26 @@
     name: "Devotion",
     requires: "the Dog",
     body: [
-      When you spend the best part of a season with a particular person, you can give them your Devotion. When *_the
-      holder of your Devotion pays attention to you_*, you can communicate through your actions and expressions using
-      short, simple, direct sentences. Once per session when you *_Aid a holder of your Devotion_*, you can allow them
-      to treat a 6- as 7-9 or a 7-9 as 10+.
+      When you spend the best part of a season with someone, you can give them your Devotion. When *_the holder of your
+      Devotion pays attention to you_*, you can communicate non-verbally, using short, simple, direct sentences (as a
+      player). Once per session when you *_Aid a holder of your Devotion_*, you can allow them to treat a 6- as a 7-9 or
+      a 7-9 as a 10+.
     ],
     children: (
       new_move(
         name: "Just Whistle",
         requires: "Devotion",
         body: [
-          When *_the holder of your Devotion is in a scene without out_*, you may barrel in at any time without
+          When *_the holder of your Devotion is in a scene without you_*, you may barrel in at any time without
           explaining how you got there.
         ],
       ),
       new_move(
-        name: "Folks' Best Friend",
+        name: "Everyone's Best Friend",
         requires: "Devotion",
         body: [
-          You can give your Devotion to multiple people, as long as they are all friends with each other.
+          You can give your Devotion to multiple people. If two holders of your Devotion are angrily at odds, mark
+          _miserable_ until all is clearly well again.
         ],
       ),
     ),
@@ -295,7 +296,7 @@
     name: "Throw a Bone",
     body: [
       When you *_whine piteously because you want something that a nearby character has the power to give you_*, your
-      wish is always clear. You have advantage to Persuade them to get it.
+      wish is always clear. You have advantage to Persuade them to give it to you.
     ],
   ),
   new_move(
@@ -314,7 +315,7 @@
   //  ),
   new_move(
     name: "Call the Hunt",
-    requires: "level 6+ and Beastongue",
+    requires: "level 6+ and Howl of the Pack",
     body: [
       When you *_scream a primal howl at night when in or near the Great Woods_*, take 1d6 damage (ignores armor) and
       roll +WIS. On a 7+, the Pale Hunter heeds your howl, and will soon manifest to hunt the quarry you name. On a 7-9,
@@ -339,6 +340,14 @@
     ],
   ),
   new_move(
+    name: "Premonition of Peril",
+    requires: "level 6+ and Just Whistle",
+    body: [
+      You know if the holder of your Devotion is in peril, anywhere in the world. When you *_burst in on a scene where
+      the holder of your Devotion is in peril_*, the action pauses for a moment at your dramatic entrance.
+    ],
+  ),
+  new_move(
     name: "Strong Jaws",
     requires: "level 6+",
     body: [
@@ -354,7 +363,7 @@
   ),
   new_move(
     name: "Zephyr",
-    requires: "level 6+ and Beastongue",
+    requires: "level 6+ and Spirit Friend",
     body: [
       You gain a Spirit of the Wild (such as a wind spirit) as a Follower. Work with the GM to determine the details,
       including their Cost.
@@ -365,27 +374,27 @@
 #let character_question_sections = (
   [
     = The Animals of Stonetop
-    As a dog, you have a unique perspective on the animals of the village. As well as the other dogs, the village is
-    home to many cats (alas), plus chickens, goats, sheep, pigs, and the two huge draft horses.
+    As well as other dogs, the village is home to many cats (alas), plus chickens, goats, sheep, pigs, and the two huge
+    draft horses.
 
     How do the domesticated animals in Stonetop interact? (Choose 1)
     #checklist[
       - They can all speak with one another freely in a language that normal humans don't understand or even perceive as
         language.
-      - Those of the same species can speak with one another, but not with individuals of other species.
-      - Animals are mute with one another, as they are with humans. Emotions can be expressed through body language and
-        vocalisations, but they exchange nothing resembling language.
+      - Those of the same kind (e.g. dogs) can speak with one another, but not with others.
+      - The vocalisations of domestic animals with one other are nothing like language.
     ]
+    #v(0.5em)
 
-    #linebreak()
-    Amongst the village dogs, where do you stand? (Choose 1)
-    #checklist[
-      - You are an outsider, an underdog, harrassed or shunned by the other dogs for your strange ways.
-      - You fit right in, with some friends and some rivals.
-      - You are top dog.
-    ]
+    Do the domesticated animals of the village accept you as just another dog? Or are you an outsider, regarded as
+    strange or unnatural? Perhaps you get on unusually well with some kinds but not others. Detail your standing with
+    the village animals.
+    #v(2em)
 
-    #linebreak()
+    How do the animals react to the Stone? Are they indifferent, spooked, defensive, something else? What about when it
+    pulls lightning from the sky? Do different kinds react differently?
+    #v(2em)
+
     More animal names: Acorn, Amber, Ash, Bastard, Bolt, Briar, Bucky, Chewer, Chunk, Climber, Cloud/y, Cluck, Curly,
     Drake, Fluffy, Frosty, Grazer, Gwead, Hairy, Ivy, Kid, Lady, Layer, Lord, Luna, Maker, Midnight, Mother, Mountain,
     Porky, Rat, Raven, Red, Smudge, Snort, Sprout, Snow/y, Storm/y, Sunny, Thunder, Titan, Willow, Wooly
@@ -401,12 +410,12 @@
       #linebreak()
       - What sensation did you feel when you uncovered what was buried?
       #linebreak()
-      - What made you decide you had to bury it again, quickly?
+      - Why did you bury it again, quickly?
       #linebreak()
       - What half-seen other thing came out of the hole before you'd fully filled it in?
       #linebreak()
     ]
-    Anyway, you buried it again, so everything's fine now. Was that a rabbit?
+    Anyway, you buried it again, so everything's fine now, right? Ooh, was that a rabbit?
   ],
 )
 
@@ -418,13 +427,13 @@
     Tell us how do you contribute to the village.
   ],
   "3": [
-    On your third turn, *describe how the animals of Stonetop interact*. Then, *tell us about the buried thing*. Remind
-    the other players that their characters most likely don't actually know these facts though, at least not yet.
+    On your third turn, *describe how the animals of Stonetop interact with one other, with you and with the Stone*.
+    Then, *tell us about the buried thing*.
   ],
   "4": [
     On your next turn, *answer one of the following*, naming an animal or NPC who lives in Stonetop.
     #checklist[
-      - Which village dog do you most often fight with?
+      - With which village dog do you most often fight?
       #linebreak()
       - Which human villager always has a treat for you?
       #linebreak()
@@ -439,7 +448,7 @@
     #checklist[
       - Which of you believes that I'm not a typical dog?
       #linebreak()
-      - Which of you do the animals of the village seem to love?
+      - Which of you do all the animals of the village seem to love?
       #linebreak()
       - Which of you has fed me when my owner was not around?
       #linebreak()
