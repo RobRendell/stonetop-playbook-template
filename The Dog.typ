@@ -27,7 +27,7 @@
 #let backgrounds = (
   [
     == Working Dog
-    You are a dog of Stonetop. You work for your place, just like everyone else around here. What do you do?
+    You are a dog of Stonetop. You work for your place, just like everyone else around here. Choose 1:
 
     #two_columns_checklist(condense: true, gutter: 2em)[
       - Caravan dog
@@ -35,6 +35,7 @@
       - Herdsdog
       - Hunting dog
       - Watch dog
+      - #fill_in_the_blank
     ]
     #linebreak()
     When you *_Seek Insight by sniffing around a settlement_*, you can ask "What is the strongest smell here, and what
@@ -52,13 +53,14 @@
       - The Foothills
       - #fill_in_the_blank
     ]
-    In this region, you have advantage to Forage (other than in Winter) and to travel safely.
+    In your region of birth, you have advantage to Forage (other than in Winter) and to travel safely.
 
     You start with the Beastongue move (go mark it now).
   ],
   [
     == Supernatural
-    You were sent to Stonetop for a Purpose. What type of being sent you?
+    You were magically created, or you were a regular dog but something happened to you. What was the source of your
+    magic? (Choose 1)
     #two_columns_checklist(condense: true, gutter: 2em)[
       - A Fae
       - A God
@@ -67,13 +69,13 @@
       - A Thing Below
       - #fill_in_the_blank
     ]
-    Do you know of this being, or is your origin a mystery to you?
 
-    Choose your Purpose, and decide the details now or later.
-    #checklist[
-      - Hunter (what is your quarry?)
-      - Guardian (who or what are you protecting?)
-      - Portent (what do you portend?)
+    You innately know you have a Purpose. (Choose 1)
+    #two_columns_checklist[
+      - Hunter
+      - Guardian
+      - Guide
+      - Omen
     ]
     You have advantage on rolls related to your Purpose.
 
@@ -382,18 +384,18 @@
       - They can all speak with one another freely in a language that normal humans don't understand or even perceive as
         language.
       - Those of the same kind (e.g. dogs) can speak with one another, but not with others.
-      - The vocalisations of domestic animals with one other are nothing like language.
+      - The vocalisations that domestic animals make to each other are nothing like language.
     ]
     #v(0.5em)
 
-    Do the domesticated animals of the village accept you as just another dog? Or are you an outsider, regarded as
-    strange or unnatural? Perhaps you get on unusually well with some kinds but not others. Detail your standing with
-    the village animals.
-    #v(2em)
-
-    How do the animals react to the Stone? Are they indifferent, spooked, defensive, something else? What about when it
-    pulls lightning from the sky? Do different kinds react differently?
-    #v(2em)
+    What else strange or interesting have you noticed about the animals of Stonetop? (Choose 1 or more)
+    #checklist[
+      - The cats vanish from the village on the third night of each full moon, returning before dawn.
+      - Herbivores that are allowed to graze on the Gwead get smarter, more cunning, more wild.
+      - Some chickens seem to have a secret, with look-outs alerting the others when approached.
+      - There's a pig that seems to be wise beyond its years, perhaps even oracular.
+    ]
+    #v(0.5em)
 
     More animal names: Acorn, Amber, Ash, Bastard, Bolt, Briar, Bucky, Chewer, Chunk, Climber, Cloud/y, Cluck, Curly,
     Drake, Fluffy, Frosty, Grazer, Gwead, Hairy, Ivy, Kid, Lady, Layer, Lord, Luna, Maker, Midnight, Mother, Mountain,
@@ -401,7 +403,7 @@
   ],
   [
     = Something Buried
-    Things get buried. Things get dug up. Both of these things are fun! But you found something buried under the village
+    Things get buried. Things get dug up. Both of these things are fun! But you dug up something buried in the village
     of Stonetop that wasn't so fun, in the fields perhaps, or beside a stone wall, you don't quite recall.
 
     Answer at least 2 of the following questions:
@@ -412,14 +414,17 @@
       #linebreak()
       - Why did you bury it again, quickly?
       #linebreak()
-      - What half-seen other thing came out of the hole before you'd fully filled it in?
+      - What half-seen other thing escaped from the hole before you'd fully filled it in?
       #linebreak()
     ]
-    Anyway, you buried it again, so everything's fine now, right? Ooh, was that a rabbit?
+    Anyway, you buried it again, so everything's fine now, right? Ooh, is that a rabbit?
   ],
 )
 
 #let introductions = (
+  "1": [
+    On your first turn, *introduce yourself* by name, pronouns, background and appearance.
+  ],
   "2": [
     On your second turn, *describe your special possessions*. If you have an NPC owner, name them.
 
@@ -427,13 +432,13 @@
     Tell us how do you contribute to the village.
   ],
   "3": [
-    On your third turn, *describe how the animals of Stonetop interact with one other, with you and with the Stone*.
-    Then, *tell us about the buried thing*.
+    On your third turn, *describe how the animals of Stonetop interact, and what you have noticed*. Then, *tell us about
+    the buried thing*.
   ],
   "4": [
     On your next turn, *answer one of the following*, naming an animal or NPC who lives in Stonetop.
     #checklist[
-      - With which village dog do you most often fight?
+      - Which village dog fights with you most often?
       #linebreak()
       - Which human villager always has a treat for you?
       #linebreak()
@@ -446,9 +451,9 @@
   "6": [
     On your next turn, *ask your fellow PCs one of these*. When others ask you, answer as you like, if it makes sense.
     #checklist[
-      - Which of you believes that I'm not a typical dog?
+      - Which of you suspects that I'm not a typical dog?
       #linebreak()
-      - Which of you do all the animals of the village seem to love?
+      - Which of you do all the other dogs of the village seem to love?
       #linebreak()
       - Which of you has fed me when my owner was not around?
       #linebreak()
@@ -470,6 +475,89 @@
   ],
 )
 
+
+#let playbook_advice = (
+  "1": [
+    *Ask them the following:*
+    - How quickly do you age? At the same rate as a normal dog (~7 times human), or at a different rate? Or do you not
+      even know yet?
+  ],
+  backgrounds: (
+    [
+      == Working Dog
+      - Are your parents still alive? Are they still working?
+      - How many of your litter-mates still live in Stonetop? Do you see them often?
+      - Which dog (or perhaps other animal) did you grow up always playing with?
+    ],
+    [
+      == Wild-Born
+      - Is your old pack still out there in the wild? How would they react if they met you again?
+      - What drew you to Stonetop? What ties you to the village?
+      - When did you first make yourself known? How did you convince the villagers to let you stay?
+      - Who in the village fears that you are still wild, not to be trusted?
+    ],
+    [
+      == Supernatural
+      - If you were always supernatural, how and when did you arrive in Stonetop? If something changed you, when did it
+        happen, and how has your life changed since gaining your powers?
+      - Did you see/meet the being that was the source of your magic, or is your magical origin a mystery to you?
+      - If your Purpose is...
+        - Hunter: what is your quarry?
+        - Guardian: who or what are you protecting? From what?
+        - Guide: who are you meant to guide, to what end?
+        - Omen: what change or threat do you portend, if you even know?
+    ],
+  ),
+  "2": [
+    *If they have...*
+    #linebreak()
+    == Armor, a backpack, a dog coat, a toy
+    - Who made it for you? Who looks after it when you're not using it?
+    - Is there a tradition of making such things in Stonetop, or is yours the only one?
+    == A bolt-hole
+    - Don't define where it is exactly, but how did you come to find or dig out this hidden place?
+    == A good reputation
+    - What did you do to earn your reputation?
+    == An owner
+    - What is their name?
+    - Do they have family that lives with them, and if so, how do you get on with these others?
+    - How did you come to be looked after by such a kind human?
+  ],
+  "3": [
+    == Animals of Stonetop
+
+    The Dog is quite limited in their ability to communicate freely with human villagers, so the first question gives
+    the player significant control over whether they have NPCs to speak with or not.
+
+    - Do the dogs of the village accept you as one of them? If not, what is their attitude?
+    - Is your relationship with other kinds of animals in the village typical of a dog? If not, how so?
+    - Are any human villagers aware of any of the strange or interesting things that you noticed?
+    - How do the animals react to the Stone (indifferent, spooked, defensive, something else)? Do different kinds react
+      differently? What about when it pulls lightning from the sky?
+    - You can understand human speech, at least when they speak of concrete things. What about the other animals in the
+      village?
+
+    == Something Buried
+
+    What is buried should be left unspecified. The player doesn't say what it was, just how it made them feel.
+
+    - How long ago was it that you dug up and then buried the thing?
+    - Has anything changed since then, that you've noticed?
+
+  ],
+  "4": none,
+  "5": [
+    *Before moving on to step 6, if it's not already clear ask:*
+    - Do you have a mate? Any puppies?
+  ],
+  "6": none,
+  "7": none,
+  "8": [
+    - If you don't have an owner, where do you live?
+    - Why is your owner's/your home there, as opposed to somewhere else?
+  ],
+)
+
 /* Don't edit beyond here */
 
 #let playbook = (
@@ -485,6 +573,7 @@
   character_question_sections: character_question_sections,
   introductions: introductions,
   footnotes: footnotes,
+  playbook_advice: playbook_advice,
   marginY: 0.2in,
 )
 
