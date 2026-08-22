@@ -27,25 +27,19 @@
 #let backgrounds = (
   [
     == Working Dog
-    You are a dog of Stonetop. You work for your place, just like everyone else around here. Choose 1:
+    You were born and bred in Stonetop. You work for your place, just like everyone else around here.
 
-    #two_columns_checklist(condense: true, gutter: 2em)[
-      - Caravan dog
-      - Guide dog
-      - Herdsdog
-      - Hunting dog
-      - Watch dog
-      - #fill_in_the_blank
-    ]
-    #linebreak()
-    When you *_Seek Insight by sniffing around a settlement_*, you can ask "What is the strongest smell here, and what
-    is its source?" for free, even on a 6-. The answer can be metaphorical.
+    You start with the Devotion move, and either several friendly homes or an owner (your choice) as an additional
+    special possession. Go mark them now.
 
-    You start with the Devotion move (go mark it now).
+    When you *_Seek Insight by sniffing around a settlement_*, you can ask "What scent catches my nose, and where does
+    it lead?" for free, even on a 6-. It will usually lead to something interesting.
   ],
   [
     == Wild-Born
-    You were born in the wilds, but something about a person (or the people) of Stonetop has drawn you to adopt them.
+    You were born in the wilds, but something about a person (or the people) of Stonetop has drawn you here and made you
+    to adopt them. You start with the Beastongue move (go mark it now).
+
     What region were you originally from?
     #two_columns_checklist(condense: true, gutter: 2em)[
       - The Great Woods
@@ -53,33 +47,25 @@
       - The Foothills
       - #fill_in_the_blank
     ]
-    In your region of birth, you have advantage to Forage (other than in Winter) and to travel safely.
-
-    You start with the Beastongue move (go mark it now).
+    In this region, you have advantage to rolls to avoid its hazards, and guide others past them.
   ],
   [
     == Supernatural
-    You were magically created, or you were a regular dog but something happened to you. What was the source of your
-    magic? (Choose 1)
-    #two_columns_checklist(condense: true, gutter: 2em)[
-      - A Fae
-      - A God
-      - A Maker (?)
-      - A Spirit
-      - A Thing Below
-      - #fill_in_the_blank
-    ]
+    You are magical, whether innately or acquired. Start with the Not Just a Dog move (go mark it now).
 
-    You innately know you have a Purpose. (Choose 1)
-    #two_columns_checklist[
-      - Hunter
-      - Guardian
-      - Guide
-      - Omen
+    Your nature grants you a magical knack but also an ongoing downside (choose 1). You also have a tell, a hidden mark
+    of your magical nature - what is it? When you *_focus briefly to use your knack_*, you create a short-lived effect,
+    the stakes are always high, and your tell becomes visible for a few hours.
+    #checklist(condense: true)[
+      - An animate glamour of yourself, appearing and remaining within _near_ range (you remain visible). The touch of
+        iron is painful to you.
+      - A bark that compels prey or the unprepared to flinch, freeze or drop whatever they're holding (your choice).
+        Domesticated herbivores are frightened in your presence.
+      - A shroud of lightning that discharges into any that touch you (1d6, _forceful_). Storms make you hyperactive and
+        your tell constantly visible.
+      - All nearby spirits are roused to alertness, and you can touch and harm the insubstantial. Such spirits can
+        always touch and harm you.
     ]
-    You have advantage on rolls related to your Purpose.
-
-    You start with the Not Just a Dog move (go mark it now).
   ],
 )
 
@@ -136,11 +122,12 @@
   - *#inv Armor*, made specially for you (1 armor).
   - *A backpack* made specially for you, which can hold small items and up to a Medium load.
   - *A bolt-hole*, crude but well-concealed, somewhere in the areas you roam.
-  - *A good reputation* with nearly every villager who dwells in Stonetop.
+  - *Friends*, 1-2 follower dogs #tags("alert", "keen-nosed", "fast") *HP* 6, *Damage* d6 #tags("hand", "grabby"),
+    *Instinct:* to give chase. *Cost:* food and play.
   - *Secret stashes* (#uses(5) uses): questionable provisions and buried items throughout the areas you roam.
   - *An owner* #tags("kind", "lovable", "human-wise") *HP* 6, *Damage* d6, *Moves:* Use opposable thumbs, Interpret
-    humanspeech and dogspeech, *Instinct:* to expect obedience. *Cost:* work & affection.
-  - *#inv A dog coat #tags[warm]*
+    humanspeech and dogspeech, *Instinct:* to expect obedience. *Cost:* work and affection.
+  - *Several friendly homes* in the village who will gladly take you in for the night.
   - *An indestructible toy*, imbued with great significance
   - *A very destructible toy*, imbued with great significance
   - #fill_in_the_blank (discuss with GM)
@@ -177,6 +164,7 @@
   new_move(
     name: "Devotion",
     requires: "the Dog",
+    stock: 1,
     body: [
       When you spend the best part of a season with someone, you can give them your Devotion. When *_the holder of your
       Devotion pays attention to you_*, you can communicate non-verbally, using short, simple, direct sentences (as a
@@ -210,28 +198,22 @@
     ],
   ),
   new_move(
-    name: "Improved Stat",
-    num_checkboxes: 3,
-    body: [
-      Each time you take this move, increase one of your stats by 1 (to a max of +2).
-    ],
-  ),
-  new_move(
     name: "Just A Dog",
     requires: "the Dog",
     checked: true,
     body: [
-      You're a dog. You can't manipulate objects or speak in the ways humans can, and can generally only carry one item
-      at a time (in your mouth). When you *_follow a creature's recent scent trail_*, you follow until it is masked by
-      water or a stronger scent. *_In the presence of the supernatural_* your hackles rise. Once per session when *_your
-      canine nature causes offense or difficulty_*, mark XP.
+      You're a dog. You can't speak using language, and can only grasp objects with your mouth. Your night-vision, ears
+      and nose are keen. When you *_follow a creature's recent scent trail_*, you follow until it is masked by water or
+      a stronger scent. You can always ask the GM "Are my hackles rising due to something supernatural nearby" and get
+      an honest answer.
     ],
   ),
   new_move(
     name: "Not Just a Dog",
     requires: "the Dog",
     body: [
-      Whether innately or acquired, you have a magical nature. Gain Armor 3, bypassed by (GM chooses 1)
+      Magic is in your blood. You can discern magic and the nature of the supernatural in detail (tell us how). You gain
+      Armor 3, bypassed by (GM chooses 1)
       #two_columns_checklist(condense: true, padX: 1em, gutter: 2em)[
         - Bronze
         - Black Iron
@@ -241,7 +223,7 @@
     ],
     children: (
       new_move(
-        name: "Magic Tongue",
+        name: "Healing Tongue",
         requires: "Not Just a Dog",
         body: [
           When you *_spend time licking someone who is Recovering_*, roll +WIS. On a 7+, they do not need to use
@@ -251,20 +233,36 @@
         ],
       ),
       new_move(
-        name: "Scent of Magic",
+        name: "Surge",
         requires: "Not Just a Dog",
         body: [
-          You can recognise and distinguish the scents of different types of magic and unnatural beings. When you *_Seek
-          Insight_*, you can ask "What magic can I smell?" as one of your options.
+          When you *_tap into your magic to assist with a physical feat_* (running, jumping etc), describe what it looks
+          like and roll +CON. On a 10+ choose 2, on a 7-9 choose 1:
+          - You move much faster, leap much further etc.
+          - You can keep going for hours.
+          - Don't mark a debility when the surge ends.
         ],
       ),
     ),
   ),
   new_move(
+    name: "Guard Dog",
+    body: [
+      When you *_Defend_*, hold 1 extra Readiness. Even on a 6-, hold 1 Readiness (plus whatever the GM says).
+    ],
+  ),
+  new_move(
     name: "Hamstring",
     body: [
-      When you *_Aid an ally to Clash and they inflict harm_*, they can additionally either deal +1d4 damage or cause
-      the enemy to gain the _slow_ tag.
+      When you *_Aid an ally to Clash and they deal damage_*, they can additionally either deal +1d4 damage or cause the
+      enemy to gain the _slow_ tag.
+    ],
+  ),
+  new_move(
+    name: "Improved Stat",
+    num_checkboxes: 3,
+    body: [
+      Each time you take this move, increase one of your stats by 1 (to a max of +2).
     ],
   ),
   new_move(
@@ -273,32 +271,22 @@
     requires: "level 2+ and the Dog",
     body: [
       Take a move from the Fox, Heavy, Ranger or Would-Be Hero playbooks for which you otherwise qualify, and that makes
-      some sense for you as a dog. You can pick from a different playbook each time. You can't pick improved Stat or
-      Superior Stat.
+      some sense for a dog. You can pick from a different playbook each time. You can't pick improved Stat or Superior
+      Stat.
     ],
   ),
   new_move(
     name: "Nose for trouble",
     body: [
-      When you *_sniff someone_*, you may ask their player "Are you hiding something?" OR "Are you up to no good?" and
-      get an honest answer. If the answer is yes, they must also tell you whether they intend harm to you or those you
-      care about.
+      When you *_sniff someone_*, you may ask their player "Are you up to no good?" and get an honest answer. If the
+      answer is yes, they must also tell you whether they intend harm to you or those you care about.
     ],
   ),
   new_move(
-    name: "Roll Over",
+    name: "Snarl",
     body: [
-      If you *_roll over onto your back_*, no enemy will consider you a threat as long as you remain supine. If you
-      *_try to quickly do something non-violent that requires you to stand_*, roll +DEX. On a 10+, you can do the thing
-      and return to your back before anyone notices. On a 7-9, you can do the thing OR return to your back before anyone
-      notices, your choice.
-    ],
-  ),
-  new_move(
-    name: "Throw a Bone",
-    body: [
-      When you *_whine piteously because you want something that a nearby character has the power to give you_*, your
-      wish is always clear. You have advantage to Persuade them to give it to you.
+      When you *_Persuade by baring your fangs and growling_*, you have advantage, and what you want them to do or not
+      do is clear to the target of your ire.
     ],
   ),
   new_move(
@@ -308,20 +296,20 @@
       convey your meaning using simple language.
     ],
   ),
-  //  new_move(
-  //    name: "Who's the Best Dog?",
-  //    body: [
-  //      You improve the spirits of everyone around you. When *_your group stops to Recover and you are not miserable_*,
-  //      everyone else in your party can clear _miserable_.
-  //    ],
-  //  ),
+  new_move(
+    name: "Who's the Best Dog?",
+    body: [
+      You improve the spirits of everyone around you. When *_your group stops to Recover and you are not miserable
+      yourself_*, everyone who could reasonably do so can clear _miserable_.
+    ],
+  ),
   new_move(
     name: "Call the Hunt",
     requires: "level 6+ and Howl of the Pack",
     body: [
       When you *_scream a primal howl at night when in or near the Great Woods_*, take 1d6 damage (ignores armor) and
       roll +WIS. On a 7+, the Pale Hunter heeds your howl, and will soon manifest to hunt the quarry you name. On a 7-9,
-      the Hunter expects you to lead the hunt.
+      you are expected to lead the hunt.
     ],
   ),
   new_move(
@@ -330,13 +318,13 @@
     requires: "level 6+ and Not Just a Dog",
     body: [
       Take a move from the Blessed, Lightbearer or Seeker playbooks for which you otherwise qualify, and that makes some
-      sense for you as a dog. You can pick from a different playbook each time. You can't pick improved Stat or Superior
-      Stat.
+      sense for a magical dog. You can pick from a different playbook each time. You can't pick improved Stat or
+      Superior Stat.
     ],
   ),
   new_move(
     name: "Mind Speech",
-    requires: "level 6+ and Devotion",
+    requires: "level 6+, Devotion and Not Just a Dog",
     body: [
       You and the the holder of your Devotion can freely and privately speak mind-to-mind (up to _near_ range).
     ],
@@ -408,13 +396,13 @@
 
     Answer at least 2 of the following questions:
     #checklist[
-      - What eerie thing drew your attention to the spot initially?
+      - What eerie thing drew your attention to the spot in the first place?
       #linebreak()
-      - What sensation did you feel when you uncovered what was buried?
+      - What made you dig, despite a sense of foreboding?
       #linebreak()
       - Why did you bury it again, quickly?
       #linebreak()
-      - What half-seen other thing escaped from the hole before you'd fully filled it in?
+      - What half-seen thing escaped from the hole before you'd fully filled it in?
       #linebreak()
     ]
     Anyway, you buried it again, so everything's fine now, right? Ooh, is that a rabbit?
@@ -429,7 +417,7 @@
     On your second turn, *describe your special possessions*. If you have an NPC owner, name them.
 
     #linebreak()
-    Tell us how do you contribute to the village.
+    Tell us how you contribute to the village.
   ],
   "3": [
     On your third turn, *describe how the animals of Stonetop interact, and what you have noticed*. Then, *tell us about
@@ -451,13 +439,13 @@
   "6": [
     On your next turn, *ask your fellow PCs one of these*. When others ask you, answer as you like, if it makes sense.
     #checklist[
-      - Which of you suspects that I'm not a typical dog?
+      - Is one of you my owner?
       #linebreak()
-      - Which of you do all the other dogs of the village seem to love?
+      - Which of you suspects that I'm not a typical dog?
       #linebreak()
       - Which of you has fed me when my owner was not around?
       #linebreak()
-      - Which of you did I bite once?
+      - Which of you did I bite once, and why?
       #linebreak()
     ]
   ],
@@ -469,9 +457,10 @@
 // e.g. #let footnotes = ( "3": [* The first time you use any move marked with an asterisk (*), cross off “Would-be” on the front page.])
 #let footnotes = (
   "1": [
-    Dog Playbook contributors: Brynden_rivs_esq, Matt Wetherbee, GarthS and Rob Rendell.
-
     Paw image by Lorc of game-icons.net and released under a CC BY 3.0 license.
+  ],
+  "4": [
+    Contributors: Brynden_rivs_esq, Matt Wetherbee, GarthS, \[thirty\], Blazer19, Luke and Rob Rendell.
   ],
 )
 
@@ -485,7 +474,8 @@
   backgrounds: (
     [
       == Working Dog
-      - Are your parents still alive? Are they still working?
+      - What work do you do? Guide dog, herdsdog, hunting dog, watch dog, something else?
+      - Are your dam and sire still alive? Are they still working?
       - How many of your litter-mates still live in Stonetop? Do you see them often?
       - Which dog (or perhaps other animal) did you grow up always playing with?
     ],
@@ -497,27 +487,35 @@
       - Who in the village fears that you are still wild, not to be trusted?
     ],
     [
-      == Supernatural
-      - If you were always supernatural, how and when did you arrive in Stonetop? If something changed you, when did it
-        happen, and how has your life changed since gaining your powers?
-      - Did you see/meet the being that was the source of your magic, or is your magical origin a mystery to you?
-      - If your Purpose is...
-        - Hunter: what is your quarry?
-        - Guardian: who or what are you protecting? From what?
-        - Guide: who are you meant to guide, to what end?
-        - Omen: what change or threat do you portend, if you even know?
+      == Supernatural #linebreak()
+      The Supernatural Dog's "tell" is a visible, obviously supernatural feature that is normally hidden, revealed by
+      when they use their knack. For example, their eyes might glow, their coat might change to some colour no natural
+      dog has, sparks might rise from their fur etc.
+      - Tell us all about your tell.
+      - If you were always magical, do you know the source of your magic, or is your origin a mystery to you? How and
+        when did you arrive in Stonetop?
+      - If something changed you, when did it happen, and how has your life changed since gaining your powers?
+      - Does anyone in the village know what you can do? If so, who, and how do they treat you now?
+
+      Note that while activating their knack does not involve a roll, the stakes are always high when they do, meaning
+      they're more likely to trigger Defy Danger (or some other move).
     ],
   ),
   "2": [
-    *If they have...*
-    #linebreak()
-    == Armor, a backpack, a dog coat, a toy
+    *If they have...* #linebreak()
+    == Armor, a backpack, a toy
     - Who made it for you? Who looks after it when you're not using it?
     - Is there a tradition of making such things in Stonetop, or is yours the only one?
     == A bolt-hole
     - Don't define where it is exactly, but how did you come to find or dig out this hidden place?
-    == A good reputation
-    - What did you do to earn your reputation?
+    == Friends
+    - Are the other dogs your litter-mates? If not, how did you meet?
+    - Why are you such good friends? Tell us a story about your adventures together.
+    - Do they live in the village and have owners of their own? How free are they to leave with you?
+    == Several friendly homes
+    - Did you do something special to win these villager's hearts? Or are they just dog-lovers who would take in any
+      stray?
+    - How many homes are friendly? Give us the name of the householder of at least one of them.
     == An owner
     - What is their name?
     - Do they have family that lives with them, and if so, how do you get on with these others?
