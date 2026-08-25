@@ -37,8 +37,8 @@
   ],
   [
     == Wild-Born
-    You were born in the wilds, but something about a person (or the people) of Stonetop has drawn you here and made you
-    to adopt them. You start with the Beastongue move (go mark it now).
+    You were born in the wilds, but something about a person (or the people) of Stonetop has drawn you here and caused
+    you to adopt them. You start with the Beastongue move (go mark it now).
 
     What region were you originally from?
     #two_columns_checklist(condense: true, gutter: 2em)[
@@ -47,24 +47,23 @@
       - The Foothills
       - #fill_in_the_blank
     ]
-    In this region, you have advantage to rolls to avoid its hazards, and guide others past them.
+    In your birth-region, you have advantage on rolls to avoid its hazards, and guide others past them.
   ],
   [
     == Supernatural
     You are magical, whether innately or acquired. Start with the Not Just a Dog move (go mark it now).
 
-    Your nature grants you a magical knack but also an ongoing downside (choose 1). You also have a tell, a hidden mark
-    of your magical nature - what is it? When you *_focus briefly to use your knack_*, you create a short-lived effect,
-    the stakes are always high, and your tell becomes visible for a few hours.
+    Your nature grants you a magical knack, along with an ongoing downside (choose 1). When you *_focus briefly to use
+    your knack_*, the stakes are always high and you create or trigger a short-lived effect:
     #checklist(condense: true)[
-      - An animate glamour of yourself, appearing and remaining within _near_ range (you remain visible). The touch of
-        iron is painful to you.
-      - A bark that compels prey or the unprepared to flinch, freeze or drop whatever they're holding (your choice).
-        Domesticated herbivores are frightened in your presence.
-      - A shroud of lightning that discharges into any that touch you (1d6, _forceful_). Storms make you hyperactive and
-        your tell constantly visible.
-      - All nearby spirits are roused to alertness, and you can touch and harm the insubstantial. Such spirits can
-        always touch and harm you.
+      - ... a silent, animate glamour of a single creature or item your size or smaller, always within _near_ range of
+        you. You feel the touch of iron as agony.
+      - ... barking that compels prey or an unprepared target to flee, freeze or drop whatever they're holding (your
+        choice). Domesticated herbivores are always frightened in your presence.
+      - ... a shroud of lightning that discharges when anyone touches you (1d6, _forceful_). Storms make you hyperactive
+        and your tell constantly visible.
+      - ... a howl that rouses nearby spirits to alertness, and allows you to touch and harm insubstantial things.
+        Spirits can always touch and harm you.
     ]
   ],
 )
@@ -212,14 +211,9 @@
     name: "Not Just a Dog",
     requires: "the Dog",
     body: [
-      Magic is in your blood. You can discern magic and the nature of the supernatural in detail (tell us how). You gain
-      Armor 3, bypassed by (GM chooses 1)
-      #two_columns_checklist(condense: true, padX: 1em, gutter: 2em)[
-        - Bronze
-        - Black Iron
-        - Fire
-        - #fill_in_the_blank
-      ]
+      You can discern the nature of the supernatural and magic in detail (tell us how). You gain Armor 3, bypassed by
+      some material the GM chooses (bronze, silver, black iron etc.) You also gain a _tell_, a normally-hidden mark of
+      your magical nature - what is it? When you *_use overt magic_*, your tell shows for a few hours.
     ],
     children: (
       new_move(
@@ -254,8 +248,8 @@
   new_move(
     name: "Hamstring",
     body: [
-      When you *_Aid an ally to Clash and they deal damage_*, they can additionally either deal +1d4 damage or cause the
-      enemy to gain the _slow_ tag.
+      When you *_Aid an ally to Clash and they deal damage_*, deal +1d4 damage and the enemy is slowed or hindered if a
+      leg injury could do so.
     ],
   ),
   new_move(
@@ -290,10 +284,10 @@
     ],
   ),
   new_move(
-    name: "Torri Fell Down the Cistern?",
+    name: "Torri Fell Down the Cistern",
     body: [
-      When *_someone's life is on the line_*, people understand your barks and body language more clearly. You can
-      convey your meaning using simple language.
+      When *_someone's life is on the line_*, anyone that is unaware of the danger understands your barks and body
+      language more clearly. You can convey your meaning to them using short, simple, direct language.
     ],
   ),
   new_move(
@@ -326,7 +320,8 @@
     name: "Mind Speech",
     requires: "level 6+, Devotion and Not Just a Dog",
     body: [
-      You and the the holder of your Devotion can freely and privately speak mind-to-mind (up to _near_ range).
+      You and the the holder of your Devotion can freely and privately speak mind-to-mind (up to _near_ range). Using
+      mind speech does not reveal your tell.
     ],
   ),
   new_move(
@@ -428,11 +423,11 @@
     #checklist[
       - Which village dog fights with you most often?
       #linebreak()
-      - Which human villager always has a treat for you?
+      - Which animal are you always fetching back after it has strayed?
       #linebreak()
-      - Which animal is most likely to stray from where the villagers want them?
+      - Who always has a treat for you?
       #linebreak()
-      - Which animal most often terrorises the village children?
+      - Who always seeks the comfort of your presence?
       #linebreak()
     ]
   ],
@@ -450,7 +445,7 @@
     ]
   ],
   "8": [
-    Add your owner's home to the steading playbook. When everyone is done, let spring break forth!
+    Add your home(s) to the steading playbook. When everyone is done, let spring break forth!
   ],
 )
 
@@ -488,17 +483,13 @@
     ],
     [
       == Supernatural #linebreak()
-      The Supernatural Dog's "tell" is a visible, obviously supernatural feature that is normally hidden, revealed by
-      when they use their knack. For example, their eyes might glow, their coat might change to some colour no natural
-      dog has, sparks might rise from their fur etc.
-      - Tell us all about your tell.
       - If you were always magical, do you know the source of your magic, or is your origin a mystery to you? How and
         when did you arrive in Stonetop?
       - If something changed you, when did it happen, and how has your life changed since gaining your powers?
       - Does anyone in the village know what you can do? If so, who, and how do they treat you now?
 
-      Note that while activating their knack does not involve a roll, the stakes are always high when they do, meaning
-      they're more likely to trigger Defy Danger (or some other move).
+      Note that while activating their knack does not involve a roll, the stakes are always high, meaning the
+      circumstances only need to meet the other two conditions to trigger Defy Danger.
     ],
   ),
   "2": [
@@ -507,11 +498,12 @@
     - Who made it for you? Who looks after it when you're not using it?
     - Is there a tradition of making such things in Stonetop, or is yours the only one?
     == A bolt-hole
-    - Don't define where it is exactly, but how did you come to find or dig out this hidden place?
+    - Don't define where it is exactly yet, but how did you come to find or dig out this hidden place?
     == Friends
     - Are the other dogs your litter-mates? If not, how did you meet?
     - Why are you such good friends? Tell us a story about your adventures together.
-    - Do they live in the village and have owners of their own? How free are they to leave with you?
+    - Do they live in the village and have owners of their own? How free are they to leave with you to go on
+      expeditions?
     == Several friendly homes
     - Did you do something special to win these villager's hearts? Or are they just dog-lovers who would take in any
       stray?
@@ -535,11 +527,12 @@
     - You can understand human speech, at least when they speak of concrete things. What about the other animals in the
       village?
 
+    #colbreak()
     == Something Buried
 
-    What is buried should be left unspecified. The player doesn't say what it was, just how it made them feel.
+    What exactly is buried should be left unspecified. The player doesn't say what it was, just how it made them feel.
 
-    - How long ago was it that you dug up and then buried the thing?
+    - How long ago was it that you dug up and then re-buried the thing?
     - Has anything changed since then, that you've noticed?
 
   ],
@@ -552,9 +545,105 @@
   "7": none,
   "8": [
     - If you don't have an owner, where do you live?
-    - Why is your owner's/your home there, as opposed to somewhere else?
+    - Why is your or your owner's home there, as opposed to somewhere else?
+  ],
+  moves: [
+    == Just a Dog
+    - A dog's keen senses allows them to observe the world in more detail than a human, which should be reflected in
+      what you describe to them. A dog that Seeks Insight can also gain their insights framed in terms of what their
+      excellent senses reveal.
+    - The ability to ask the GM "Are my hackles rising due to something supernatural nearby" just gets a yes/no answer.
+      A regular dog is aware of the supernatural being nearby, and it makes them uncomfortable, but they don't
+      necessarily know much more than that. Of course, their excellent senses means that they may be able to learn
+      more... a corporeal supernatural creature will probably have a distinctive smell, just like a mundane creature.
+
+    == Not Just a Dog
+    - The dog can now sense all sorts of types of supernatural creatures, magical phenomena and suchlike.
+      - They player decides how they perceive the supernatural - perhaps as distinct smells, perhaps as ringing sounds
+        outside human hearing range, perhaps they can see auras, or perhaps some combination, in different ways for
+        different types of things.
+      - This ability doesn't necessarily mean they can identify such things on first contact. They know it's magic or
+        supernatural, but might need to encounter something once first and learn what it is through experience, before
+        they can recognise the signs of the same or a similar magic or creature later.
+    - The material which bypasses their supernatural resilience should make sense, given the source of their magic.
+      - If they have the Supernatural background, it should match thematically with their chosen knack and drawback.
+      - If they have a different background and then become magical during play, discuss how that came about to
+        determine what might have been the source of their magic and what material would be appropriate.
+      - The material should generally be somewhat uncommon... you shouldn't choose normal iron as the thing to bypass
+        their resilience unless the player is happy to lean into that experience.
+    - Their "tell" is a visible, obviously supernatural feature that is normally hidden, but revealed when they use an
+      ability powered by their magic. For example, their eyes might glow, their coat might change to some colour no
+      natural dog has, sparks might rise from their fur etc.
+      - A Supernatural Dog that uses their knack reveals their tell, as does any dog using other moves which have Not
+        Just a Dog as a prerequisite (unless the move says otherwise). Whether using other arguably-magical moves such
+        as Beastongue or Call the Hunt cause their tell to become visible is something for your table to decide.
   ],
 )
+
+#if false {
+  character_question_sections = (
+    [
+      = Your Litter-Mate
+      Your master The Ranger has two loyal dogs, you and your litter-mate. What name have they been given?
+
+      #linebreak()
+      #fill_in_the_blank
+
+      Despite having the same sire and dam, you're very different. You're smarter than them, able to understand more
+      about human things and what is going on around you, but also choose 1:
+
+      #checklist[
+        - They are smaller than you, able to squeeze into spaces you can't.
+        - They are bigger than you, able to outpace you at a dead run when hunting game.
+        - You two have contrasting reputations with the folks of Stonetop. If you are friendly and well regarded, they
+          are snappy and viewed with apprehension, and vice versa.
+        - They are always much hungrier than you, and steal your food if the master isn't watching.
+      ]
+    ],
+  )
+
+  introductions = (
+    "1": [You go after the Ranger and before the Would-Be Hero. *Introduce yourself* by name, pronouns, background,
+      origin, and appearance. Remind everyone that you're a dog.],
+    "2": [On your next turn, *tell us about your litter-mate, the Ranger's other dog*.],
+    "3": [On your third turn, imagine yourself curled up on the floor of a hut in Stonetop, near a warm fire, your
+      master and another friendly human making human noises to each other you don't understand. *Pant contentedly*.],
+    "4": [On your next turn, imagine the evening wearing on. *Scratch your ears*.],
+    "5": [On your last turn, *whine to alert your master* as the Would-be Hero approaches the house.],
+    "6": none,
+    "7": none,
+    "8": none,
+  )
+
+  footnotes = (
+    "1": [
+      Paw image by Lorc of game-icons.net and released under a CC BY 3.0 license.
+      #box[#place(dx: -8.45cm, dy: -17.05cm)[#text(fill: red, size: 16pt)[#sym.crossmark]]]
+      #box[#place(dx: -2.35cm, dy: -15.2cm)[#text(fill: red, size: 16pt)[#sym.crossmark]]]
+      #box[#place(dx: -0.9cm, dy: -10.5cm)[#text(fill: red, size: 16pt)[#sym.crossmark]]]
+    ],
+    "2": [
+      #box[#place(dx: 0.3cm, dy: -18.9cm)[#text(fill: red, size: 24pt, font: style_options.font_handwriting)[+2]]]
+      #box[#place(dx: 2.4cm, dy: -18.9cm)[#text(fill: red, size: 24pt, font: style_options.font_handwriting)[+0]]]
+      #box[#place(dx: 4.4cm, dy: -18.9cm)[#text(fill: red, size: 24pt, font: style_options.font_handwriting)[-1]]]
+      #box[#place(dx: 6.4cm, dy: -18.9cm)[#text(fill: red, size: 24pt, font: style_options.font_handwriting)[+1]]]
+      #box[#place(dx: 8.3cm, dy: -18.9cm)[#text(fill: red, size: 24pt, font: style_options.font_handwriting)[+1]]]
+      #box[#place(dx: 10.2cm, dy: -18.9cm)[#text(fill: red, size: 24pt, font: style_options.font_handwriting)[+0]]]
+      #box[#place(dx: -0.45cm, dy: -7.05cm)[#text(fill: red, size: 16pt)[#sym.crossmark]]]
+    ],
+    "3": [
+      #box[#place(dx: 6.0cm, dy: -17.7cm)[#text(fill: red, size: 16pt)[#sym.crossmark]]]
+      #box[#place(dx: 5.95cm, dy: -17.05cm)[#text(fill: red, size: 16pt)[#sym.crossmark]]]
+      #box[#place(dx: -0.25cm, dy: -17.55cm)[#text(fill: red, size: 16pt)[#sym.crossmark]]]
+      #box[#place(dx: -0.3cm, dy: -7.75cm)[#text(fill: red, size: 16pt)[#sym.crossmark]]]
+    ],
+    "4": [
+      Contributors: Brynden_rivs_esq, Matt Wetherbee, GarthS, \[thirty\], Blazer19, Luke and Rob Rendell.
+    ],
+  )
+
+  playbook_advice = none
+}
 
 /* Don't edit beyond here */
 
