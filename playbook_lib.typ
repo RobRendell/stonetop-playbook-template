@@ -1,5 +1,6 @@
 // Simple line starting with checkbox:
 #import "stonetop_style.typ": style_options
+#import "@preview/meander:0.4.4"
 
 #let check(body, hspace: 0.75em, checked: false, count: 1, inline: false) = [
   #show math.equation: set text(size: 12pt)
@@ -376,18 +377,34 @@
     #show_footnote("3", footnotes)
   ]
 
-  let intro_step(num, introductions: introductions, body) = block()[
-    #if num in introductions {
+  let intro_step(num, introductions: introductions, body) = {
+    if num in introductions {
       body = introductions.at(num)
     }
-    #if body != none [
-      #place(top + left, thin_line)
-      #stack(dir: ltr, spacing: 0.5em,
-        box[ #image("img/intro_bg.svg") #place(top + center, text(fill: white)[= #num], dy: 2pt)],
-        pad(top: 0.75em, body)
-      )
+    if body != none [
+      #let badge = context {
+        let label_text = text(fill: white)[= #num]
+        let dimensions = measure(label_text)
+
+        // Calculate explicit dimensions for the badge box
+        let box_width = calc.max(dimensions.width, 1em.to-absolute()) + 0.5em
+        let box_height = dimensions.height + 0.7em
+
+        box(width: box_width, height: box_height)[
+          #place(top + left, image("img/intro_bg.svg", width: 100%, height: 100%, fit: "stretch"))
+          #place(center + horizon, label_text, dy: -1pt)
+        ]
+      }
+      #meander.reflow({
+        import meander: *
+
+        placed(top + left, thin_line)
+        placed(top + left, badge)
+        container()
+        content[ #body ]
+      })
     ]
-  ]
+  }
 
   let page4 = [
     #grid(
@@ -460,10 +477,8 @@
       ]
       #intro_step("2", introductions: playbook_advice)[]
       #intro_step("3", introductions: playbook_advice)[]
-      #intro_step("4", introductions: playbook_advice)[]
-      #intro_step("5", introductions: playbook_advice)[]
-      #intro_step("6", introductions: playbook_advice)[]
-      #intro_step("7", introductions: playbook_advice)[]
+      #intro_step("4&5", introductions: playbook_advice)[]
+      #intro_step("6&7", introductions: playbook_advice)[]
       #intro_step("8", introductions: playbook_advice)[]
       #if "moves" in playbook_advice [
         #colbreak(weak: true)

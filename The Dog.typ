@@ -100,6 +100,7 @@
   ("low growl", "playful bark", "mournful howl"),
   ("small & quick", "lean & rangy", "huge & muscular"),
   ("sleek coat", "curly hair", "shaggy fur", "wire-haired"),
+  (),
 )
 
 #let origins_and_names = [
@@ -329,7 +330,8 @@
     requires: "level 6+ and Just Whistle",
     body: [
       You know if the holder of your Devotion is in peril, anywhere in the world. When you *_burst in on a scene where
-      the holder of your Devotion is in peril_*, the action pauses for a moment at your dramatic entrance.
+      the holder of your Devotion is in peril_*, everyone pauses for a moment, their attention drawn by your dramatic
+      entrance.
     ],
   ),
   new_move(
@@ -453,6 +455,8 @@
 #let footnotes = (
   "1": [
     Paw image by Lorc of game-icons.net and released under a CC BY 3.0 license.
+
+    Stonetop Typst template by Zalea.
   ],
   "4": [
     Contributors: Brynden_rivs_esq, Matt Wetherbee, GarthS, \[thirty\], Blazer19, Luke and Rob Rendell.
@@ -492,27 +496,37 @@
       circumstances only need to meet the other two conditions to trigger Defy Danger.
     ],
   ),
-  "2": [
-    *If they have...* #linebreak()
-    == Armor, a backpack, a toy
-    - Who made it for you? Who looks after it when you're not using it?
-    - Is there a tradition of making such things in Stonetop, or is yours the only one?
-    == A bolt-hole
-    - Don't define where it is exactly yet, but how did you come to find or dig out this hidden place?
-    == Friends
-    - Are the other dogs your litter-mates? If not, how did you meet?
-    - Why are you such good friends? Tell us a story about your adventures together.
-    - Do they live in the village and have owners of their own? How free are they to leave with you to go on
-      expeditions?
-    == Several friendly homes
-    - Did you do something special to win these villager's hearts? Or are they just dog-lovers who would take in any
-      stray?
-    - How many homes are friendly? Give us the name of the householder of at least one of them.
-    == An owner
-    - What is their name?
-    - Do they have family that lives with them, and if so, how do you get on with these others?
-    - How did you come to be looked after by such a kind human?
-  ],
+  "2": make_unbreakable_blocks(
+    [*If they have...*],
+    [
+      == Armor, a backpack, a toy
+      - Who made it for you? Who looks after it when you're not using it?
+      - Is there a tradition of making such things in Stonetop, or is yours the only one?
+    ],
+    [
+      == A bolt-hole
+      - Don't define where it is exactly yet, but how did you come to find or dig out this hidden place?
+    ],
+    [
+      == Friends
+      - Are the other dogs your litter-mates? If not, how did you meet?
+      - Why are you such good friends? Tell us a story about your adventures together.
+      - Do they live in the village and have owners of their own? How free are they to leave with you to go on
+        expeditions?
+    ],
+    [
+      == Several friendly homes
+      - Did you do something special to win these villager's hearts? Or are they just dog-lovers who would take in any
+        stray?
+      - How many homes are friendly? Give us the name of the householder of at least one of them.
+    ],
+    [
+      == An owner
+      - What is their name?
+      - Do they have family that lives with them, and if so, how do you get on with these others?
+      - How did you come to be looked after by such a kind human?
+    ],
+  ),
   "3": [
     == Animals of Stonetop
 
@@ -527,7 +541,6 @@
     - You can understand human speech, at least when they speak of concrete things. What about the other animals in the
       village?
 
-    #colbreak()
     == Something Buried
 
     What exactly is buried should be left unspecified. The player doesn't say what it was, just how it made them feel.
@@ -536,13 +549,11 @@
     - Has anything changed since then, that you've noticed?
 
   ],
-  "4": none,
-  "5": [
+  "4&5": [
     *Before moving on to step 6, if it's not already clear ask:*
     - Do you have a mate? Any puppies?
   ],
-  "6": none,
-  "7": none,
+  "6&7": none,
   "8": [
     - If you don't have an owner, where do you live?
     - Why is your or your owner's home there, as opposed to somewhere else?
@@ -558,7 +569,7 @@
       more... a corporeal supernatural creature will probably have a distinctive smell, just like a mundane creature.
 
     == Not Just a Dog
-    - The dog can now sense all sorts of types of supernatural creatures, magical phenomena and suchlike.
+    - The dog can now directly sense magical phenomena, the supernatural and suchlike.
       - They player decides how they perceive the supernatural - perhaps as distinct smells, perhaps as ringing sounds
         outside human hearing range, perhaps they can see auras, or perhaps some combination, in different ways for
         different types of things.
@@ -573,7 +584,8 @@
         their resilience unless the player is happy to lean into that experience.
     - Their "tell" is a visible, obviously supernatural feature that is normally hidden, but revealed when they use an
       ability powered by their magic. For example, their eyes might glow, their coat might change to some colour no
-      natural dog has, sparks might rise from their fur etc.
+      natural dog has, sparks might rise from their fur etc. There is a blank space under "Appearance" for them to note
+      it there if they like.
       - A Supernatural Dog that uses their knack reveals their tell, as does any dog using other moves which have Not
         Just a Dog as a prerequisite (unless the move says otherwise). Whether using other arguably-magical moves such
         as Beastongue or Call the Hunt cause their tell to become visible is something for your table to decide.
